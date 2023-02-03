@@ -1,7 +1,7 @@
-import ScMain from "./Main.js";
+import CompMain from "./Main.js";
 
 const Main = ({ children }) => {
-  return <ScMain>{children}</ScMain>;
+  return <CompMain>{children}</CompMain>;
 };
 
 export default Main;

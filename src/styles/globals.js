@@ -26,6 +26,7 @@ const Global = createGlobalStyle`
   ::-webkit-scrollbar-thumb {
       border-radius: 10px;
       background: var(--gray-20);
+      box-shadow: var(--gray-100);
       -webkit-box-shadow: var(--gray-100);
   }
 

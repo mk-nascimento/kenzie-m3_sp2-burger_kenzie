@@ -1,15 +1,14 @@
-import HeaderSearch from "../Search/index.jsx";
-import CompHeader from "./Header.js";
+import ComponentHeader from "./Header.js";
 import logo from "/src/assets/logo.svg";
 
-const Header = () => {
+const Header = ({ children }) => {
   return (
-    <CompHeader className="bg-gray-0">
+    <ComponentHeader className="bg-gray-0">
       <div className="container flex-column">
         <img src={logo} alt="Logo" aria-label="Logo" />
-        <HeaderSearch />
+        {children}
       </div>
-    </CompHeader>
+    </ComponentHeader>
   );
 };
 

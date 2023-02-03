@@ -24,7 +24,7 @@ const UlCart = ({ cart, children }) => {
       <ToastContainer autoClose />
       <CartUl className="flex-column">
         {listCart.map((product) => (
-          <CartProduct cart={cart} product={product}>
+          <CartProduct cart={cart} product={product} key={product.id}>
             <Button
               text={"Remover"}
               className={"color-gray-50"}

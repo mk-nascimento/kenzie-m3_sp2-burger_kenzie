@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CompHeader = styled.header`
+const ComponentHeader = styled.header`
 
   .container{
     gap: 16px;
@@ -27,4 +27,4 @@ const CompHeader = styled.header`
 
 `
 
-export default CompHeader;
+export default ComponentHeader;

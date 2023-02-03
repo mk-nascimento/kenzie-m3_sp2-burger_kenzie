@@ -6,7 +6,6 @@ import CartTotal from "../CartTotal/index.jsx";
 import UlCart from "../CartUl/index.jsx";
 
 const Cart = ({ cartStates, cartTotal }) => {
-  //
   const [productsCart, setCart] = cartStates;
   const removeAll = () => {
     setCart([]);

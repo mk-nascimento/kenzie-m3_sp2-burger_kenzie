@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ScMain = styled.main`
+const CompMain = styled.main`
 
   margin-bottom: 40px;
 
@@ -18,4 +18,4 @@ const ScMain = styled.main`
 
 `
 
-export default ScMain;
+export default CompMain;

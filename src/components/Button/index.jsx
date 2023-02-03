@@ -1,10 +1,12 @@
-import { ScButton } from "./Button.js";
+import ComponentButton from "./Button.js";
 
-const Button = ({ text, className, click }) => {
+const Button = ({ click, className, text, type }) => {
+  const buttontype = type ? type : "button";
+
   return (
-    <ScButton className={className} onClick={click}>
+    <ComponentButton className={className} onClick={click} type={buttontype}>
       {text}
-    </ScButton>
+    </ComponentButton>
   );
 };
 

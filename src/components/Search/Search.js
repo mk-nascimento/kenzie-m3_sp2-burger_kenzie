@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Search = styled.form`
+const SearchForm = styled.form`
 
   padding: 10px;
   border: solid 2px var(--gray-20);
@@ -23,4 +23,4 @@ export const Input = styled.input`
   all: unset;
 `
 
-export default Search;
+export default SearchForm;
