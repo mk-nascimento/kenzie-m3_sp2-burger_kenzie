@@ -2,8 +2,8 @@ import SearchForm, { Input } from "./Search.js";
 import Button from "../Button/index.jsx";
 import { useState } from "react";
 
-const HeaderSearch = ({ filterStates, products, setNewValue }) => {
-  const [inputValue, setInputValue] = useState("");
+const HeaderSearch = ({ filterStates, products, setNewValue, valueSearch }) => {
+  const [inputValue, setInputValue] = useState(valueSearch);
 
   const productMatch = (product) => {
     return (

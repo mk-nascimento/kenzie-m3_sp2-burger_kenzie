@@ -84,6 +84,7 @@ const App = () => {
           filterStates={setFilteredProducts}
           products={products}
           setNewValue={setValueSearch}
+          valueSearch={valueSearch}
         />
       </Header>
       <Main>
