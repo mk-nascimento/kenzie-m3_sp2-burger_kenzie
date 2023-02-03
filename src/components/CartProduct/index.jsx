@@ -1,6 +1,36 @@
+import Button from "../Button/index.jsx";
 import CartProductLi from "./CartProduct.js";
+import { FiPlus, FiMinus } from "react-icons/fi";
 
-const CartProduct = ({ category, img, name, children }) => {
+const CartProduct = ({ cart, children, product }) => {
+  const { category, id, img, name, quantity } = product;
+
+  const [listCart, setNewListCart] = cart;
+
+  const decrement = () => {
+    if (quantity > 1) {
+      const decrementedProducts = listCart.map((product) => {
+        if (product.id == id && product.quantity > 1) product.quantity--;
+
+        return product;
+      });
+
+      setNewListCart(decrementedProducts);
+    } else {
+      setNewListCart(listCart.filter((product) => product.id != id));
+    }
+  };
+
+  const increment = () => {
+    const incrementedProducts = listCart.map((product) => {
+      if (product.id == id) product.quantity++;
+
+      return product;
+    });
+
+    setNewListCart(incrementedProducts);
+  };
+
   return (
     <CartProductLi className="flex-d-row">
       <img className="bg-gray-20" src={img} alt={`produto: ${name}`} />
@@ -13,6 +43,12 @@ const CartProduct = ({ category, img, name, children }) => {
         <p className="info-product__category caption color-gray-50">
           {category}
         </p>
+      </div>
+
+      <div className="count flex-d-row caption color-gray-50">
+        <Button click={decrement} text={<FiMinus />} />
+        <span>{quantity}</span>
+        <Button click={increment} text={<FiPlus />} />
       </div>
     </CartProductLi>
   );

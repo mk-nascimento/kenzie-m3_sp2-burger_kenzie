@@ -20,15 +20,23 @@ const CartProductLi = styled.li`
   }
 
   & > .info-product > button{
-    /* position: absolute; */
     background: none;
-    /* top: 8.75%; */
-    /* right: 0; */
     align-self: flex-end;
     padding: 0;
     font-weight: 500;
     font-size: calc(12rem/16);
     line-height: 15px;
+  }
+  & > .count {
+    position: absolute;
+    bottom: 6px;
+    right: 0;
+    gap: 4px;
+
+    button {
+      all: unset;
+      cursor: pointer;
+    }
   }
 
 `

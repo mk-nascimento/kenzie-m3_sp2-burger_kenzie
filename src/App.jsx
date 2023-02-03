@@ -1,4 +1,7 @@
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
+
 import Cart from "./components/Cart/index.jsx";
 import Header from "./components/Header/index.jsx";
 import Main from "./components/Main/index.jsx";
@@ -36,7 +39,18 @@ const App = () => {
     );
     if (find && !alreadyInCart) {
       setCartProducts([...cartProducts, { ...find, quantity: 1 }]);
-    }
+
+      toast.success("Item adicionado com sucesso !", {
+        autoClose: 750,
+        className: "color-gray-100",
+        progressClassName: "bg-fb-sucess",
+      });
+    } else
+      toast.info("Item já está no carrinho !", {
+        autoClose: 750,
+        className: "color-gray-100",
+        progressClassName: "bg-fb-info",
+      });
   };
 
   useEffect(() => {
@@ -60,15 +74,15 @@ const App = () => {
 
   return (
     <div className="App">
+      <ToastContainer autoClose />
       <Header />
       <Main>
         <div className="container flex-column">
           <ProductsList list={hasFiltered()} handle={handleClick} />
 
           <Cart
-            productsCart={cartProducts}
             cartTotal={cartTotal}
-            clearCart={setCartProducts}
+            cartStates={[cartProducts, setCartProducts]}
           />
         </div>
       </Main>

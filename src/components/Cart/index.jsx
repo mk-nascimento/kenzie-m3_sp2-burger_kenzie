@@ -1,13 +1,26 @@
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import Aside from "./Cart.js";
 import Button from "../Button/index.jsx";
 import CartTotal from "../CartTotal/index.jsx";
 import UlCart from "../CartUl/index.jsx";
 
-const Cart = ({ cartTotal, clearCart, productsCart = [] }) => {
+const Cart = ({ cartStates, cartTotal }) => {
   //
+  const [productsCart, setCart] = cartStates;
+  const removeAll = () => {
+    setCart([]);
+
+    toast.info("Todos os itens foram removidos !", {
+      autoClose: 750,
+      className: "color-gray-100",
+      progressClassName: "bg-fb-info",
+    });
+  };
 
   return (
     <Aside className="flex-column bg-gray-0">
+      <ToastContainer autoClose />
       <div className="Aside-Cart__header bg-primary color-white">
         <h3 className="Aside-Cart__header-title heading-3">
           Carrinho de compras
@@ -15,7 +28,7 @@ const Cart = ({ cartTotal, clearCart, productsCart = [] }) => {
       </div>
       {productsCart.length > 0 ? (
         <>
-          <UlCart list={productsCart}>
+          <UlCart cart={cartStates}>
             <CartTotal
               total={cartTotal.toLocaleString("pt-BR", {
                 style: "currency",
@@ -24,7 +37,7 @@ const Cart = ({ cartTotal, clearCart, productsCart = [] }) => {
               <Button
                 text={"Remover todos"}
                 className={"bg-gray-20 body-600 color-gray-50"}
-                click={() => clearCart([])}
+                click={removeAll}
               />
             </CartTotal>
           </UlCart>

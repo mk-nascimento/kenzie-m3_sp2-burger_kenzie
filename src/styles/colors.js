@@ -81,17 +81,17 @@ const Colors = createGlobalStyle`
   .color-fb-info {
     color: var(--feedback-information);
   }
-
-  .color-fb-neg {
-    color: var(--feedback-negative);
-  }
-
+  
   .color-fb-sucess {
     color: var(--feedback-sucess);
   }
 
   .color-fb-warn {
     color: var(--feedback-warning);
+  }
+
+  .color-fb-neg {
+    color: var(--feedback-negative);
   }
 
   .color-white{
