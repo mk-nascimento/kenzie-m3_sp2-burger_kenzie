@@ -1,4 +1,4 @@
-import ComponentHeader from "./Header.js";
+import ComponentHeader from "./styles.js";
 import logo from "/src/assets/logo.svg";
 
 const Header = ({ children }) => {

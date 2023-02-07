@@ -1,11 +1,27 @@
 import { v4 as uuid } from "uuid";
-import Card from "../Card/index.jsx";
-import ProductsUl from "./List.js";
-import Button from "../Button/index.jsx";
+import Button from "../Button";
+import Card from "../Card";
+import StyledUlProducts from "./styles.js";
 
-const ProductsList = ({ list = [], handle }) => {
+const ProductsList = ({ cartStates, handle, list = [] }) => {
+  const [listCart, setNewListCart] = cartStates;
+
+  const addCart = (id) => {
+    const alreadyInCart = listCart.some((product) => product.id == id);
+
+    if (!alreadyInCart) handle(id);
+    else {
+      const incrementedProducts = listCart.map((product) => {
+        if (product.id == id) product.quantity++;
+
+        return product;
+      });
+      setNewListCart(incrementedProducts);
+    }
+  };
+
   return (
-    <ProductsUl>
+    <StyledUlProducts>
       {list.map(({ category, id, img, name, price }) => (
         <Card
           category={category}
@@ -16,11 +32,11 @@ const ProductsList = ({ list = [], handle }) => {
           <Button
             text="Adicionar"
             className="body-600 bg-primary color-white"
-            click={() => handle(id)}
+            click={() => addCart(id)}
           />
         </Card>
       ))}
-    </ProductsUl>
+    </StyledUlProducts>
   );
 };
 

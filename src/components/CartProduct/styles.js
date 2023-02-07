@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CartProductLi = styled.li`
+const StyledLiCart = styled.li`
 
   position: relative;
   gap: 10px;
@@ -28,17 +28,27 @@ const CartProductLi = styled.li`
     line-height: 15px;
   }
   & > .count {
+
     position: absolute;
+    height: calc(12rem/16);
+    border-radius: 2px;
     bottom: 6px;
     right: 0;
     gap: 4px;
 
+    svg {
+      color: white;
+    }
+
     button {
       all: unset;
       cursor: pointer;
+      background: var(--primary);
+      border-radius: 2px;
+      display: flex;
     }
   }
 
 `
 
-export default CartProductLi;
+export default StyledLiCart;

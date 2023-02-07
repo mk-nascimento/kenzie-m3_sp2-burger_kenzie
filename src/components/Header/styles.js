@@ -4,7 +4,6 @@ const ComponentHeader = styled.header`
 
   .container{
     gap: 16px;
-
   }
 
   img{
@@ -19,10 +18,7 @@ const ComponentHeader = styled.header`
       flex-direction: row;
       justify-content: space-between;
     }
-
-    form{
-      width: 25%;
-    }
+    
   }
 
 `

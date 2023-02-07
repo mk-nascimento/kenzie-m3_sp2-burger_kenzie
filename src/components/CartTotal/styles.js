@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const DivTotal = styled.div`
+const StyledDivTotal = styled.div`
 
   padding: 18px;
   gap: 22px;
@@ -11,8 +11,6 @@ const DivTotal = styled.div`
 
   & > button {
 
-
-
     :hover{
       background: var(--gray-50);
       color: var(--gray-20);
@@ -21,4 +19,4 @@ const DivTotal = styled.div`
 
 `
 
-export default DivTotal;
+export default StyledDivTotal;

@@ -1,11 +1,10 @@
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
-import Aside from "./Cart.js";
-import Button from "../Button/index.jsx";
-import CartTotal from "../CartTotal/index.jsx";
-import UlCart from "../CartUl/index.jsx";
+import { toast } from "react-toastify";
+import Button from "../Button";
+import CartList from "../CartList";
+import CartTotal from "../CartTotal";
+import StyledAside from "./styles.js";
 
-const Cart = ({ cartStates, cartTotal }) => {
+const Aside = ({ cartStates, cartTotal }) => {
   const [productsCart, setCart] = cartStates;
   const removeAll = () => {
     setCart([]);
@@ -18,8 +17,7 @@ const Cart = ({ cartStates, cartTotal }) => {
   };
 
   return (
-    <Aside className="flex-column bg-gray-0">
-      <ToastContainer autoClose />
+    <StyledAside className="flex-column bg-gray-0">
       <div className="Aside-Cart__header bg-primary color-white">
         <h3 className="Aside-Cart__header-title heading-3">
           Carrinho de compras
@@ -27,7 +25,7 @@ const Cart = ({ cartStates, cartTotal }) => {
       </div>
       {productsCart.length > 0 ? (
         <>
-          <UlCart cart={cartStates}>
+          <CartList cart={cartStates}>
             <CartTotal
               total={cartTotal.toLocaleString("pt-BR", {
                 style: "currency",
@@ -39,7 +37,7 @@ const Cart = ({ cartStates, cartTotal }) => {
                 click={removeAll}
               />
             </CartTotal>
-          </UlCart>
+          </CartList>
         </>
       ) : (
         <div className="empty-cartProducts flex-column align-center">
@@ -48,8 +46,8 @@ const Cart = ({ cartStates, cartTotal }) => {
           <p className="body color-gray-50">Adicione itens</p>
         </div>
       )}
-    </Aside>
+    </StyledAside>
   );
 };
 
-export default Cart;
+export default Aside;

@@ -1,10 +1,9 @@
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
-import CartUl from "./CartUl.js";
-import CartProduct from "../CartProduct/index.jsx";
+import { toast } from "react-toastify";
 import Button from "../Button/index.jsx";
+import CartProduct from "../CartProduct/index.jsx";
+import StyledUlCart from "./styles.js";
 
-const UlCart = ({ cart, children }) => {
+const CartList = ({ cart, children }) => {
   const [listCart, setCart] = cart;
 
   const removeProduct = (product) => {
@@ -21,8 +20,7 @@ const UlCart = ({ cart, children }) => {
 
   return (
     <>
-      <ToastContainer autoClose />
-      <CartUl className="flex-column">
+      <StyledUlCart className="flex-column">
         {listCart.map((product) => (
           <CartProduct cart={cart} product={product} key={product.id}>
             <Button
@@ -32,11 +30,11 @@ const UlCart = ({ cart, children }) => {
             />
           </CartProduct>
         ))}
-      </CartUl>
+      </StyledUlCart>
       <hr />
       {children}
     </>
   );
 };
 
-export default UlCart;
+export default CartList;

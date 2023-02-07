@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CardLi = styled.li`
+const StyledLiCard = styled.li`
 
   margin: 0;
   min-width: calc(300rem/16);
@@ -35,4 +35,4 @@ const CardLi = styled.li`
 
 `
 
-export default CardLi
+export default StyledLiCard

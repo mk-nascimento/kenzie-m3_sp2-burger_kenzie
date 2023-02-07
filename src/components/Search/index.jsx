@@ -1,5 +1,5 @@
-import SearchForm, { Input } from "./Search.js";
-import Button from "../Button/index.jsx";
+import SearchForm from "./styles.js";
+import Button from "../Button";
 import { useState } from "react";
 
 const HeaderSearch = ({ filterStates, products, setNewValue, valueSearch }) => {
@@ -17,27 +17,27 @@ const HeaderSearch = ({ filterStates, products, setNewValue, valueSearch }) => {
   const filterProducts = () => {
     event.preventDefault();
     setNewValue(inputValue);
+
     const filteredProducts = products.filter((product) =>
       productMatch(product)
     );
+
     if (filteredProducts.length) filterStates(filteredProducts);
-    else {
-      filterStates(false);
-      setInputValue("");
-    }
+    else filterStates(false);
+
+    setInputValue("");
   };
 
   return (
     <SearchForm className="flex-d-row bg-white" onSubmit={filterProducts}>
-      <Input
-        placeholder="Digitar Pesquisa"
+      <input
+        value={inputValue ? inputValue : ""}
         onChange={() => setInputValue(event.target.value.toLowerCase())}
-        defaultValue={inputValue ? inputValue : ""}
+        placeholder="Digitar Pesquisa"
       />
 
       <Button
         className={"bg-primary color-white"}
-        click={(e) => (e.target.form[0].value = "")}
         text={"Pesquisar"}
         type="submit"
       />

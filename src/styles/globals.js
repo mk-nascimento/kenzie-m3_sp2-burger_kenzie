@@ -37,10 +37,36 @@ const Global = createGlobalStyle`
     padding: 16px;
   }
 
+  main {
+
+    margin-bottom: 40px;
+    
+    .search-container{
+      justify-content: space-between;
+    }
+    
+    div.container {
+      gap: 2%;
+    }
+    
+    .search-not-found{
+      margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 768px){
+      
+      div.container{
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    } 
+  }
+
   hr{
     width: 100%;
     border: solid 1px var(--gray-20);
   }
+
 `
 
 export default Global;

@@ -3,12 +3,11 @@ import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 import api from "./services/axios.js";
-import Cart from "./components/Cart/index.jsx";
-import Header from "./components/Header/index.jsx";
-import HeaderSearch from "./components/Search/index.jsx";
-import Main from "./components/Main/index.jsx";
-import ProductsList from "./components/ProductsList/index.jsx";
-import Button from "./components/Button/index.jsx";
+import Aside from "./components/Aside";
+import Header from "./components/Header";
+import HeaderSearch from "./components/Search";
+import ProductsList from "./components/ProductsList";
+import Button from "./components/Button";
 
 const App = () => {
   document.title = "Kenzie Burger";
@@ -48,12 +47,7 @@ const App = () => {
         className: "color-gray-100",
         progressClassName: "bg-fb-sucess",
       });
-    } else
-      toast.info("Item já está no carrinho !", {
-        autoClose: 750,
-        className: "color-gray-100",
-        progressClassName: "bg-fb-info",
-      });
+    }
   };
 
   useEffect(() => {
@@ -87,7 +81,7 @@ const App = () => {
           valueSearch={valueSearch}
         />
       </Header>
-      <Main>
+      <main>
         {valueSearch ? (
           <div className="search-container container flex-d-row">
             <h3 className="heading-1 color-gray-100">
@@ -106,23 +100,24 @@ const App = () => {
         <div className="container flex-column">
           {filteredProducts !== false ? (
             <ProductsList
-              list={hasFiltered ? filteredProducts : products}
+              cartStates={[cartProducts, setCartProducts]}
               handle={handleClick}
+              list={hasFiltered ? filteredProducts : products}
             />
           ) : (
             <>
-              <h3 className="color-gray-50 heading-2">
+              <h3 className="search-not-found color-gray-50 heading-2">
                 Não foram encontrados produtos para a sua pesquisa!!!
               </h3>
             </>
           )}
 
-          <Cart
+          <Aside
             cartTotal={cartTotal}
             cartStates={[cartProducts, setCartProducts]}
           />
         </div>
-      </Main>
+      </main>
     </div>
   );
 };

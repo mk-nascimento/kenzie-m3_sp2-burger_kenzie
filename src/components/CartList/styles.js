@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CartUl = styled.ul`
+const StyledUlCart = styled.ul`
   
   margin: 0;
   padding: 18px; 
@@ -11,4 +11,4 @@ const CartUl = styled.ul`
 
 `
 
-export default CartUl;
+export default StyledUlCart;

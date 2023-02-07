@@ -1,8 +1,7 @@
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
-import Button from "../Button/index.jsx";
-import CartProductLi from "./CartProduct.js";
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { toast } from "react-toastify";
+import Button from "../Button";
+import StyledLiCart from "./styles.js";
 
 const CartProduct = ({ cart, children, product }) => {
   const { category, id, img, name, quantity } = product;
@@ -40,8 +39,7 @@ const CartProduct = ({ cart, children, product }) => {
   };
 
   return (
-    <CartProductLi className="flex-d-row">
-      <ToastContainer autoClose />
+    <StyledLiCart className="flex-d-row">
       <img className="bg-gray-20" src={img} alt={`produto: ${name}`} />
       <div className="info-product flex-column">
         {children}
@@ -52,12 +50,12 @@ const CartProduct = ({ cart, children, product }) => {
           {category}
         </p>
       </div>
-      <div className="count flex-d-row caption color-gray-50">
+      <div className="count flex-d-row align-center caption bg-white color-gray-50">
         <Button click={decrement} text={<FiMinus />} />
         <span>{quantity}</span>
         <Button click={increment} text={<FiPlus />} />
       </div>
-    </CartProductLi>
+    </StyledLiCart>
   );
 };
 
