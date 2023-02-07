@@ -33,11 +33,7 @@ const SearchForm = styled.form`
     width: 33%;
 
     & > input{
-      width: 50%;
-    };
-
-    & > button {
-      /* width: 50%; */
+      width: 100%;
     };
   }
 
